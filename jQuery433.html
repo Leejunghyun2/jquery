@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#p1').click(function(){
+                $('#p1').html("<h3>HTML5<h3>").css('background','red').css('border','1px solid black');
+            });
+            $('#p2').click(function(){
+                $('#p2').html("<h3>CSS3<h3>").css('background','blue').css('border','1px solid black');
+            });
+            $('#p3').click(function(){
+                $('#p3').html("<h3>Javascript<h3>").css('background','green').css('border','1px solid black');
+            });
+        })
+    </script>
+</head>
+<body>
+    <h3>Web Programming!</h3>
+    <p id="p1">HTML5</p>
+    <p id="p2">CSS3</p>
+    <p id="p3">Javascript</p>
+</body>
+</html>

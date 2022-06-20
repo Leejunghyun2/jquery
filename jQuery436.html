@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <style>
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('#b1').click(function(){
+                var num = Math.ceil(Math.random()*5);
+                $('img').attr('src',function(i){
+                    
+                    file = "./img/wb" + (((i+num)%6+1))+".png";
+                    return file;
+                })
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <h3>웹브라우저이미지이동</h3>
+    <div>
+        <img src="./img/wb1.PNG" alt="">
+        <img src="./img/wb2.PNG" alt="">
+        <img src="./img/wb3.PNG" alt="">
+        <img src="./img/wb4.PNG" alt="">
+        <img src="./img/wb5.PNG" alt="">
+        <img src="./img/wb6.PNG" alt="">
+    </div><hr>
+    <button id="b1">회전이동</button>
+
+</body>
+
+</html>

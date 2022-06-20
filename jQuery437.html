@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Document</title>
+    <style>
+        .current{ background-color:  orange;}
+        p{background-color: gray;height: 30px;width: 150px;}
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('p').mouseenter(function(){
+                $(this).toggleClass('current');
+            })
+           
+        })
+    </script>
+</head>
+<body>
+    <p id="p1">HTML5</p>
+    <p id="p2">CSS3</p>
+    <p id="p3">Javascript</p>
+    <p id="p4">JQuery</p>
+</body>
+</html>

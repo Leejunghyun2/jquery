@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            $('#button').click(function () {
+                var pTag = document.getElementById('p1');
+                var txt = "이제부터는 자바스크립트를 공부합니다!";
+                txt += txt + "<br><hr>"
+                txt += '<img src="./img/jslogo.PNG" width = "150" height = "100"><hr>'
+                $('#p1').html(txt);
+            })
+        })
+    </script>
+    <p id="p1">지금까지 HTML과 CSS를 공부했습니다</p>
+    <button id="button">Next</button>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Document</title>
+    <style>
+        .current{ background-color:  orange;}
+        p{background-color: gray;height: 30px;width: 150px;}
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('#b1').click(function(){
+                $('#p1').css({
+                    border:'green',
+                    width: '150px',
+                    height:'50px',
+                    backgroundColor: 'orange',
+                    boxShadow: '5px -5px black',
+                    borderRadius: '30%',
+                    lineHeight : '50px',
+                    textAlign:'center'
+                });
+            })
+           
+        })
+    </script>
+</head>
+<body>
+    <div id="p1">자바스크립트</div>
+    <button id="b1">ㄱㄱㄱ</button>
+</body>
+</html>
