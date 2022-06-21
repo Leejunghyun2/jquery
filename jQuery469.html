@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c1" width="500" height="300" style="border: 1px solid black;">
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            
+    </canvas>
+    <script>
+        let canvas = document.getElementById('c1');
+        let obj = canvas.getContext('2d');
+        obj.beginPath();
+        obj.moveTo(20,30);
+        obj.lineTo(150,70);
+        obj.lineWidth=3;
+        obj.strokeStyle='black';
+        obj.lineCap='round';
+        obj.stroke();
+        //직선
+        obj.moveTo(50,150);
+        obj.quadraticCurveTo(150,50,200,250);
+        obj.stroke();
+        
+        obj.bezierCurveTo(250,80,300,60,350,80);
+        obj.stroke();
+        
+        obj.beginPath();
+        obj.moveTo(350,150);
+        obj.lineTo(380,250);
+        obj.lineTo(410,150);
+        obj.lineTo(440,250);
+        obj.lineTo(470,150);
+        obj.strokeStyle='red';
+        obj.stroke();
+
+        </script>
+</body>
+</html>
