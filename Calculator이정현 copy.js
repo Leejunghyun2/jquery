@@ -3,7 +3,9 @@ let result = document.getElementById('getResult'); // = 눌럿을 때 값
 let bt = document.querySelectorAll('button'); //버튼 눌럿을때 작동하기위한 초기변수
 let swc = false;  // 연산자 중복으로 쓰지못하게 하기위한 변수
 let gap = "";
+let gap2 = "";
 let stack = 0;
+let stack1 = 0;
 let npoint = null;
 let dong = "";
 
@@ -42,56 +44,59 @@ function caculatenum(event) {
                     npoint = true;
                     break;
                 } else {
+                    gap2 += val1.innerText.charAt(i);
                     npoint = false;
                 }
             }
             if (npoint == true) {
-                for (i = 0; i < val1.innerText.length; i++)
+                for (i = 0; i < val1.innerText.length; i++){
                 if (val1.innerText.charAt(i) > -1 || val1.innerText.charAt(i) < 10) {
                     gap += val1.innerText.charAt(i);
+                    stack = gap;
                 } else {
                         dong = val1.innerText.charAt(i);
                         switch (val1.innerText.charAt(i)) {
                             case '+':
-                                stack = Number(stack) + Number(gap);
+                                stack1 = Number(stack) + Number(gap);
                                 break;
                             case '-':
-                                stack = Number(stack) - Number(gap);
+                                stack1 = Number(stack) - Number(gap);
                                 break;
                             case '*':
-                                stack = Number(stack) * Number(gap);
+                                stack1 = Number(stack) * Number(gap);
                                 break;
                             case '/':
-                                stack = Number(stack) / Number(gap);
+                                stack1 = Number(stack) / Number(gap);
                                 break;
                         }
                         val1.innerText = val1.innerText.slice(i + 1, val1.innerText.length);
                         gap = "";
                         break;
                     }
-                result.innerText = stack;
+                }
+                result.innerText = stack1;
             } else {
                 switch (dong) {
                     case '+':
-                        stack = Number(stack) + Number(val1.innerText);
+                        stack1 = Number(stack) + Number(val1.innerText);
                         break;
                     case '-':
-                        stack = Number(stack) - Number(val1.innerText);
+                        stack1 = Number(stac) - Number(val1.innerText);
                         break;
                     case '*':
-                        stack = Number(stack) * Number(val1.innerText);
-                        break;
-                    case '/':
-                        stack = Number(stack) / Number(val1.innerText);
+                        stack1 = Number(stack) * Number(val1.innerText);
+                        break;                   
+                     case '/':
+                        stack1 = Number(stack) / Number(val1.innerText);
                         break;
                 }
-              
+                result.innerText = stack1;
                 val1.innerText = "";
                 gap ="";
-                stack = 0;
                 break;
             }
         }
+        stack1=0;
     }
 }
 
