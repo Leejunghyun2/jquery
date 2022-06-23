@@ -1,0 +1,55 @@
+#container{
+    display: grid;
+    width: 400px;
+    height: 600px;
+    background-color: dodgerblue;
+    grid-template: "header"
+                   "setValue"
+                   "getResult"
+                   "line";
+    grid-template-rows: 30px 60px 60px 1fr;
+    grid-row-gap: 5px;
+}
+#header{
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    grid-area: header;
+}
+#setValue{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: cornflowerblue;
+    grid-area: setValue;
+}
+#getResult{
+    background-color: cornflowerblue;
+    grid-area: getResult;
+}
+#line{
+    grid-area: line;
+    display: grid;
+    grid-template: "li1"
+                   "li2"
+                   "li3"
+                   "li4"
+                   "li5";
+    
+}
+#line > div{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+}
+#line > div > button{
+    background: linear-gradient(lightgray 20%,white 40%, lightgray 100%) ;
+    width: 95px;
+    margin: 0px 2px;
+}
+#line > #li1 > button{
+    width: 195px;
+    margin: 0px 2px;
+}
+
