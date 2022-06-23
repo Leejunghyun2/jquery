@@ -11,12 +11,13 @@
     grid-row-gap: 5px;
 }
 #header{
+    padding-left: 5px;
     display: flex;
     align-items: center;
     background-color: lightgray;
     grid-area: header;
 }
-#setValue{
+#setValue,#getResult{
     display: flex;
     align-items: center;
     justify-content: right;
