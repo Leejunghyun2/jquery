@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator이지혜.html</title>
+    <!--이지혜-->
+    <style>
+        *{ margin: 0px; padding: 0px; box-sizing: border-box;}
+
+        .calculator { width: 330px; border: 2px solid gray;
+        background-color: cornflowerblue; padding: 3px;}
+        .calculator form{ display: grid;
+        grid-template-columns: repeat(4,80px);
+        grid-auto-rows: 65px; grid-row-gap: 3px;}
+        .calculator form input { border:1px solid gray; }
+        .calculator form input[type="text"]{
+            grid-column: span 4; background-color: rgb(139, 158, 226);
+            text-align: right; font-size: 30px;}
+        .calculator form .reset { grid-column: span 2;}
+        input[type="button"] { background: linear-gradient(0.5turn, rgb(212, 231, 248),white,rgb(212, 231, 248)); color:black; font-size: 20px;}
+        input:hover[type="button"] { background: linear-gradient(0.5turn,rgb(212, 231, 248),white,rgb(212, 231, 248));}  
+    </style>
+
+</head>
+<body>  
+    <div class="calculator">
+    <form name="forms">
+        <input type="text"  id="display" readonly>
+        <input type="text"  id="result" readonly>
+        <input type="button" class="reset" value="Back" onclick="back()" >
+        <input type="button" class="reset" value="c" onclick="reset()" >
+        <input type="button" value="7" onclick="add('7')">
+        <input type="button" value="8" onclick="add('8')">
+        <input type="button" value="9" onclick="add('9')">
+        <input type="button" value="/" onclick="add('/')">
+        <input type="button" value="4" onclick="add('4')">
+        <input type="button" value="5" onclick="add('5')">
+        <input type="button" value="6" onclick="add('6')">
+        <input type="button" value="*" onclick="add('*')">
+        <input type="button" value="1" onclick="add('1')">
+        <input type="button" value="2" onclick="add('2')">
+        <input type="button" value="3" onclick="add('3')">
+        <input type="button" value="-" onclick="add('-')">
+        <input type="button" value="." onclick="add('.')">
+        <input type="button" value="0" onclick="add('0')">
+        <input type="button" value="=" onclick="calculate()">
+        <input type="button" value="+" onclick="add('+')">
+    </form>
+</div>
+<script>
+    
+    function add(num){
+        
+        var display = document.getElementById('display');
+        if(display.value.charAt(display.value.length-1)=='='){
+            display.value = display.value.slice(0,-1);
+        }
+        display.value = display.value+num;
+        
+    }
+  
+ function calculate(){
+        var display = document.getElementById('display'); 
+       
+        var result =eval(display.value);
+        var displayResult = document.getElementById('result');
+        displayResult.value =result;
+        display.value+= '=';
+    }
+    function reset(){
+        var display = document.getElementById('display');
+        display.value="";
+        var displayResult = document.getElementById('result');
+        displayResult.value="";
+    }
+    function back(){
+        var display = document.getElementById('display');
+        display.value = display.value.substring(0,display.value.length-1);
+
+    }
+    function ready(){
+    
+        var resultResult = document.getElementById('result');
+        resultResult.innerText=0;
+        CalcUpdate(resultResult);
+        var displayResult = document.getElementById('display');
+      displayResult.innerText = 0;
+      calculate(resultResult);
+      result = null;
+    
+
+    }
+   
+
+    
+</script>
+</body>
+</html>

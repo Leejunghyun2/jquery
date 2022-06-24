@@ -1,102 +1,86 @@
-let val1 = document.getElementById('setValue'); // = 나오는 값
-let result = document.getElementById('getResult'); // = 눌럿을 때 값
-let bt = document.querySelectorAll('button'); //버튼 눌럿을때 작동하기위한 초기변수
-let swc = false;  // 연산자 중복으로 쓰지못하게 하기위한 변수
-let gap = "";
-let gap2 = "";
-let stack = 0;
-let stack1 = 0;
-let npoint = null;
-let dong = "";
+let numVal = document.querySelectorAll('#numVal');
+for(i=0;i<numVal.length;i++){
+numVal[i].addEventListener('click',textadd);
+}
 
-for (j = 0; j < bt.length; j++) {
-    bt[j].addEventListener('mouseenter', caculatecol);
-    bt[j].addEventListener('mouseleave', caculatecolback);
-    bt[j].addEventListener('click', caculatenum);
-}
-function caculatecol(event) {
-    event.target.style.background = 'gray';
-}
-function caculatecolback(event) {
-    event.target.style.background = 'linear-gradient(lightgray 20%,white 40%, lightgray 100%)';
-}
-function caculatenum(event) {
-    let val = event.target.classList;
-    if (val == 'num') {
-        val1.innerText += event.target.innerText;
-        swc = false;
-    } else if (val == 'cal') {
-        if (swc == false) {
-            val1.innerText += event.target.innerText;
-            swc = true;
-        }
-    } else if (val == 'back') {
-        if (val1.innerText.length > 0) {
-            val1.innerText = val1.innerText.slice(0, -1);
-        }
-    } else if (val == 'clear') {
-        val1.innerText = "";
-        result.innerText = "";
-    } else if (val == 'result') {
-        for (k = val1.innerText.length; k > 0;) {
-            for (i = 0; i < val1.innerText.length; i++) {
-                if (!(val1.innerText.charAt(i) > -1 || val1.innerText.charAt(i) < 10)) {
-                    npoint = true;
-                    break;
-                } else {
-                    gap2 += val1.innerText.charAt(i);
-                    npoint = false;
-                }
-            }
-            if (npoint == true) {
-                for (i = 0; i < val1.innerText.length; i++){
-                if (val1.innerText.charAt(i) > -1 || val1.innerText.charAt(i) < 10) {
-                    gap += val1.innerText.charAt(i);
-                    stack = gap;
-                } else {
-                        dong = val1.innerText.charAt(i);
-                        switch (val1.innerText.charAt(i)) {
-                            case '+':
-                                stack1 = Number(stack) + Number(gap);
-                                break;
-                            case '-':
-                                stack1 = Number(stack) - Number(gap);
-                                break;
-                            case '*':
-                                stack1 = Number(stack) * Number(gap);
-                                break;
-                            case '/':
-                                stack1 = Number(stack) / Number(gap);
-                                break;
-                        }
-                        val1.innerText = val1.innerText.slice(i + 1, val1.innerText.length);
-                        gap = "";
-                        break;
-                    }
-                }
-                result.innerText = stack1;
-            } else {
-                switch (dong) {
-                    case '+':
-                        stack1 = Number(stack) + Number(val1.innerText);
-                        break;
-                    case '-':
-                        stack1 = Number(stac) - Number(val1.innerText);
-                        break;
-                    case '*':
-                        stack1 = Number(stack) * Number(val1.innerText);
-                        break;                   
-                     case '/':
-                        stack1 = Number(stack) / Number(val1.innerText);
-                        break;
-                }
-                result.innerText = stack1;
-                val1.innerText = "";
-                gap ="";
-                break;
-            }
-        }
-        stack1=0;
+let num = [];
+let text = "";
+let numTextbuffer = "";
+let opbuffer = [];
+let textaria = document.getElementById('setValue');
+let buf = document.getElementById('getResult');
+let count = 0;
+let ok = false;
+
+function operator(op){
+    if(!(numTextbuffer=="")){
+        num.push(numTextbuffer);
+        numTextbuffer = "";
     }
+ 
+        opbuffer.push(op);
+        console.log(op)
+        text += op;
+        textaria.innerText =text;
+    
+}
+function textadd(event){
+    numTextbuffer += event.target.value;
+    text += event.target.value;
+    textaria.innerText = text;
+}
+function clearVal(){
+    num = [];
+    text = "";
+    numTextbuffer = "";
+    opbuffer = [];
+    textaria.innerText = "";
+    buf.innerText = "";
+    count = 0;
+}
+function resultVal(){
+    if(!(numTextbuffer=="")){
+        num.push(numTextbuffer);
+        numTextbuffer = "";
+    }
+    
+    console.log('메롱');
+    console.log(opbuffer.includes('*')||opbuffer.includes('/'));
+    while(opbuffer.includes('*')||opbuffer.includes('/')){
+        console.log('메롱');
+        for(i=0;i<opbuffer.length;i++){
+        console.log('메롱');
+        if(opbuffer[i]=='*'){
+        let result = Number(num[i])*Number(num[i+1]);
+            num.splice(i,2,result);
+            opbuffer.splice(i,1);
+          
+            break;
+        }else if(opbuffer[i]=='/'){
+            let result = Number(num[i])/Number(num[i+1]);
+            num.splice(i,2,result);
+            opbuffer.splice(i,1);
+       
+            break;
+        }
+        }
+  }
+    while(num.length > 1){
+    console.log(opbuffer[0]);
+    if(opbuffer[0]=='+'){
+    let result = Number(num[0])+Number(num[1]);
+    num.splice(0,2,result);
+    opbuffer.pop();
+    console.log(opbuffer.toString());
+    continue;
+  } else if(opbuffer[0]=='-'){
+    let result = Number(num[0])-Number(num[1]);
+    num.splice(0,2,result);
+    opbuffer.splice(0,1);
+    continue;
+  }
+ }
+   buf.innerText = num[0];
+   count = 0;
 }
 

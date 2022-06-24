@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Calculator이정현.css">
+    <link rel="stylesheet" href="Calculator이정현 copy.css">
 </head>
 
 <body>
@@ -16,32 +16,32 @@
         <div id="getResult"></div>
         <div id="line">
             <div id="li1">
-                <button id="back" class="back" >back</button>
-                <button id="clear" class="clear">C</button>
+                <input type="button" name="" id="back" value="back">
+                <input type="button" name="" id="clear" value="C" onclick="clearVal()">
             </div>
             <div id="li2">
-                <button class="num">7</button>
-                <button class="num">8</button>
-                <button class="num">9</button>
-                <button id="divide" class="cal">/</button>
+                <input type="button" name="" id="numVal" value="7">
+                <input type="button" name="" id="numVal" value="8">
+                <input type="button" name="" id="numVal" value="9">
+                <input type="button" class="cal" id="devide" value="/"onclick="operator('/')">
             </div>
             <div id="li3">
-                <button class="num">4</button>
-                <button class="num">5</button>
-                <button class="num">6</button>
-                <button id="multi" class="cal">*</button>
+                <input type="button" name="" id="numVal" value="4">
+                <input type="button" name="" id="numVal" value="5">
+                <input type="button" name="" id="numVal" value="6">
+                <input type="button" class="cal" id="multi" value="*" onclick="operator('*')">
             </div>
             <div id="li4">
-                <button class="num">1</button>
-                <button class="num">2</button>
-                <button class="num">3</button>
-                <button id="sub" class="cal">-</button>
+                <input type="button" name="" id="numVal" value="1">
+                <input type="button" name="" id="numVal" value="2">
+                <input type="button" name="" id="numVal" value="3">
+                <input type="button" class="cal" id="sub" value="-" onclick="operator('-')">
             </div>
             <div id="li5">
-                <button class="num">.</button>
-                <button class="num">0</button>
-                <button class="result">=</button>
-                <button id="add" class="cal">+</button>
+                <input type="button" name="" id="floatVal" value=".">
+                <input type="button" name="" id="numVal" value="0">
+                <input type="button" name="" id="result" value="=" onclick="resultVal()">
+                <input type="button" class="cal" id="add" value="+" onclick="operator('+')">
             </div>
         </div>
     </div>
