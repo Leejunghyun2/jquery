@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam03.html</title>
+    <script src='https://code.jquery.com/jquery-3.6.0.js'></script>
+    <!--이정현-->
+    <style>
+        body {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2><img src="html5.PNG" width="50" height="50" id="travel">여행 버킷 리스트 !</h2>
+    <hr>
+    <ul id="ul1">
+        <li id="jeju">제주도</li>
+        <li id="hawai">하와이</li>
+        <li id="grand">그랜드캐년</li>
+    </ul> <br>
+    <input type="text" max="20">
+    <button>추천여행지</button>
+    <fieldset>
+        <legend>추천된 여행지 리스트</legend>
+        <ol id="ol1"></ol>
+    </fieldset>
+    <script>
+        var img1 = "jslogo.PNG"
+        function imgchange() {
+            $('#travel').attr('src', 'html5.PNG')
+        }
+        $(document).ready(function () {
+            $('button').click(function () {
+                var qwe2 = $('input').val();
+                var newli = $('<li></li>').html(qwe2);
+                $('#ol1').append(newli);
+                $('input').val("");
+            })
+            $(document).on('dblclick','#ol1 li',function(e){
+                $('#ul1 li:last-child').after(this);
+            })
+            $('#jeju').hover(function () {
+                var jeju1 = $('<img></img>').attr('src', 'jeju.jpg').css({
+                    width: '150px',
+                    height: '100px',
+                    display: 'flex'
+                });
+                $('#jeju').append(jeju1);
+            },function(){ $('#jeju img').remove()});
+
+            $('#grand').click(function () {
+                $('#grand').html('자이언캐년');
+                $('#grand').click(function () {
+                    $('#grand').html('브라이언캐년')
+                })
+            })
+
+            $('#travel').mouseenter(function () {
+                $('#travel').attr('src', img1)
+            })
+
+            $('#travel').mouseleave(imgchange);
+
+            $('#travel').click(function () {
+                $('#travel').off('mouseleave', imgchange)
+            });
+
+            $('#hawai').hover(function () {
+                $(this).css({ background: 'lightgray' }
+                )
+            }, function () {
+                $(this).css({ background: 'white' })
+            });
+            
+        });
+
+
+    </script>
+</body>
+
+</html>

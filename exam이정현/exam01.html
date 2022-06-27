@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam01.html</title>
+    <!--이정현-->
+    <style>
+        body{
+            width: 700px;
+            border : 1px solid black;
+            padding: 20px;
+            height: 800px;
+        }
+        div{
+            padding: 10px 50px;
+        }
+        input{
+            margin: 7px;
+        }
+        #memo{
+            margin: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>프런트엔드 개발자 지원서</h1>
+    <p>HTML, CSS, Javascipt에 대한 기술력 이해와 경험이 있는 분을 찾습니다.</p>
+    <hr>
+    <form action="">
+    <h2>개인정보</h2>
+        <div>
+            이름: <input type="text" name="" id="name" placeholder="공백없이입력해주세요."> <br>
+            연락처: <input type="tel" name="" id="tel" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+        </div>
+    
+    <h2>지원 분야</h2>
+    <div>
+     <input type="radio" name="ma"  value=""> 웹 퍼블리싱 <br>
+     <input type="radio" name="ma"  value=""> 웹 애플리케이션 개발 <br>
+     <input type="radio" name="ma"  value=""> 개발 환경 개선 <br>
+    </div>
+    <h2>지원 동기</h2>
+    <textarea rows="5" cols="70" placeholder="본사 지원 동기를 간략히 써 주세요."></textarea><br>
+    <input type="submit" name="" id="memo" value="접수하기">
+    <input type="reset" name="" id="memo" value="다시쓰기">
+    </form>
+
+
+    </body>
+
+</html>
