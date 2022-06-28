@@ -1,0 +1,38 @@
+#container{
+    display: flex;
+    flex-direction: column;
+}
+#header{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: blue;
+}
+#nav{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    display: flex;
+    background-color: skyblue;
+}
+#aaa{
+    height: fit-content;
+}
+#nav div{
+    width: fit-content;
+    margin: 0px 10px;
+}
+a{
+    text-decoration: none;
+    color: blue;
+}
+#footer{
+    display: flex;
+    background-color: blue;
+    color: white;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}

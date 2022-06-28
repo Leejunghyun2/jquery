@@ -6,16 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="exam04.css">
+    <link rel="stylesheet" href="exam04 copy.css">
     <script src='https://code.jquery.com/jquery-3.6.0.js'></script>
 
     <!--이정현-->
-   
+    
 
 </head>
 
 <body>
-
     <div id="container">
         <div id="header">
             <h1>커피숍 회원관리</h1>
@@ -28,19 +27,31 @@
             <div><a href="coffeelist.html" target="NeBoard" id="aa">매출현황조회</a></div>
             <div><a href="index.html" target="NeBoard" id="aa">홈으로</a></div>
         </div>
-        <iframe name="NeBoard" src="index.html" id="aaa"></iframe>
+        <iframe name="NeBoard"  src="index.html" id="aa2a"></iframe>
         <div id="footer">HRDKOREA Copyrightⓒ2016 All rights reserved, Human Resoutces Development Service of Korea</div>
     </div>
     
     <SCRIPT>
-        
-        function resizeIframe(fr) {
-            var if2 = document.getElementById("aaa");
-            console.log(if2.getAttribute('id')=="index.html");
-            if(if2.getAttribute('id')=="index.html");
-        }
-        
+       var if2 = document.getElementById('aa2a');
+         if2.height = 350;
+
+        $(document).on('click','#aa',function(e){
+            console.log($(this).attr('href')=='index.html');
+            if($(this).attr('href')=='index.html'){
+                if2.height = 350;
+            }else if($(this).attr('href')=='coffeeJoin.html'){
+                if2.height = 250;
+            }else if($(this).attr('href')=='memberForm.html'){
+                if2.height = 300;
+            }else if($(this).attr('href')=='coffeelist.html'){
+                if2.height = 250;
+            }else{
+                if2.height = 380;
+            }
+        })
+            
     </SCRIPT>
+    
 </body>
 
 </html>
